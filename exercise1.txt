@@ -1,0 +1,121 @@
+show databases ;
+create database cdac;
+show databases
+;
+use cdac;
+create table  SEMP 
+( 
+EMPNO CHAR(4),
+EMPNAME CHAR(20),
+BASIC FLOAT(9,2),
+DEPTNO CHAR(2),
+DEPTHEAD CHAR(4)
+);
+
+create table  SDEPT
+(
+DEPTNO CHAR(2),
+DEPTNAME CHAR(15) 
+);
+
+insert into SDEPT
+values('10', 'Development'),('20', 'Training');
+
+insert into SEMP
+values ('0001', 'SUNIL', 6000, '10', NULL),
+	   ('0002', 'HIREN', 8000, '20', NULL),
+       ('0003', 'ALI', 4000, '10', '0001'),
+       ('0004', 'GEORGE', 6000,null, '0002'); 
+	
+create table S
+(`S#` varchar(10), 
+Sname char(10), 
+Status char(10), 
+City char(10)
+);
+
+create table P
+(`P#` varchar(20),
+ Pname char(20),
+ Color char (20),
+ Weight int,
+ City char(20)
+ ) ;
+
+create table J
+(
+`J#` varchar(20), 
+Jname char(20), 
+City char(20)
+);
+
+create table SPJ
+(
+`S#` varchar(20),
+ `P#` varchar(20), 
+ `J#` varchar(20), 
+ Qty char(10)
+ );
+
+
+insert into S
+values ('Tata', 'p1', '10',  'pune'),
+		('Birla', 'p2', '20', 'Mumbai'),
+        ('Oracle', 'p3', '50', 'pune'),
+        ('Microsoft', 'p4', '5', 'Nagpur'),
+        ('Klashnikov', 'p5', '20' , 'Russia');
+
+insert into p
+values ('Tata', 'Shashank', 'green',20, 'pune'),
+		('Birla', 'Dipesh', 'blue',40, 'Mumbai'),
+        ('Oracle', 'Vipul', 'yellow',50, 'pune'),
+        ('Microsoft', 'Aditi', 'red',50, 'Nagpur'),
+        ('Klashnikov', 'Boris', 'white',80, 'Russia');
+
+
+insert into J
+values ('Tata', 'tank',  'pune'),
+		('Birla', 'ship',  'Mumbai'),
+        ('Oracle', 'radar',  'pune'),
+        ('Microsoft', 'jammar',  'Nagpur'),
+        ('Klashnikov', 'jet',  'Russia');
+        
+insert into SPJ
+values (10, 20, 30, 40),
+		(20, 20, 20, 20),
+        (50, 30, 20, 10),
+        (40, 80, 20, 90),
+        (20, 50, 10, 1000);
+#5        
+select * from S;
+
+#6
+select `S#`, Sname from S;
+
+#7
+select Pname, color from P where city="Pune";
+
+#8
+select * from S where city='pune';
+
+#9
+select * from S where city='pune' or city='nagpur';
+
+#10
+select * from P where city='russia';
+
+#11
+select pname, weight from P where weight>=20 and weight<=50;
+
+#12
+select * from S where status>=20;
+
+#13
+select * from S where city != 'pune';
+
+#14
+select city from s;
+
+#15
+select weight as 'weight in grams', weight*1000 as 'weight in miligrams', weight/1000 as 'weight in kilograms' from P;
+
