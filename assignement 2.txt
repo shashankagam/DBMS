@@ -1,0 +1,8 @@
+1) Which field of the Customers table is the primary key?
+
+Cnum is the primary key in customer table since its unique key and has been used to establish the relationship with other table like orders.
+
+2) What is the 4th column of the Customers table?
+
+
+
