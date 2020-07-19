@@ -1,0 +1,17 @@
+use cdac1;
+#1
+select cname from customers where snum in( select snum from salespeople  where  sname in ('peel', 'motika'));
+
+#2
+select distinct cname from customers where cname >= 'a' and  cname <'h';
+
+#3
+select distinct * from customers where cname between 'a' and 'h';
+
+#4
+select distinct cname from customers where cname like 'c%';
+
+#5
+select distinct * from orders where amt != 'NULL' and amt <> 0;
+
+select distinct * from orders where amt is not null and amt!=0;
