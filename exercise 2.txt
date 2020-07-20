@@ -1,0 +1,19 @@
+        #1
+        select * from s order by city desc;
+        
+        #2
+        select * from p order by city, pname desc;
+        
+        #3
+        select * from s where status between 10 and  20;
+        select * from s where status in (10,20);
+        
+        #4
+        select * from p where pname between 'r' and 't';
+        select pname from p where pname like 'S%';
+        
+        #5
+        select `s#`from S where city like 'r%';
+        
+        #6
+        select replace (jname,(substr(jname,3)),'n') from j;
