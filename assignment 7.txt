@@ -1,0 +1,21 @@
+#1
+select count(onum) from orders where odate like '%10-03';
+
+#2
+select count(city) from customers where city != 'null';
+
+select count(city) from customers where city is not null;
+
+#3
+select c.cname, min(o.amt) from orders o, customers c where o.cnum=c.cnum group by c.cname, o.amt;
+
+#4
+select min(cname) from customers where cname like ('g%') ;
+select min(cname) from customers where cname between 'f' and 'h';
+
+#5
+
+select city, max(rating) from customers group by city, rating;
+
+#6
+select count(snum), odate from orders group by odate;
