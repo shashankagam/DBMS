@@ -1,0 +1,15 @@
+/*assignment 11*/
+#1
+select onum, cnum  from orders  where cnum in ( select cnum from customers where cname='cisneros');
+
+select onum from orders where cnum = (select cnum from customers where cname = 'cisneros');
+
+#2
+Select cname, rating, a.cnum
+from orders a, customers b
+where a.cnum = b.cnum
+group by a.cnum
+having count(a.cnum) >( select avg(cun) from ( select count(cnum) as cun from orders group by cnum) as temp);
+
+#3
+select sname, sum(amt) from orders o, salespeople s where o.snum= s.snum group by sname having sum(amt)>( select max(amt) from orders) ;
