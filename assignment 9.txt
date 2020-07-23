@@ -1,0 +1,14 @@
+/*assignment9*/
+#1
+select onum, cname from orders o, customers as c where o.cnum=c.cnum;
+
+select o.cnum, onum, cname from orders o, customers as c where o.cnum=c.cnum;
+
+#2
+select sname, cname,onum from salespeople s,  customers c, orders o  where o.cnum= c.cnum and s.snum = c.snum;
+
+#3
+select cname, sname, comm from salespeople s, customers c where s.snum in (select snum from salespeople where comm > 0.12 ) ;
+
+#4
+select onum,rating, (s.comm* o.amt) from salespeople s, orders o, customers c where s.snum= o.snum and o.snum= c.snum having rating >100;

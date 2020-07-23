@@ -1,0 +1,15 @@
+/*assignement8*/
+use cdac1;
+#1
+select onum, snum, (amt*(0.18)) as commission from orders order by onum;
+
+#2
+select concat('For the city (', city, ' ), the highest rating is : (',max(rating) ,')') from customers group by city;
+
+#3
+select rating, cname, cnum from customers order by rating desc;
+
+#4
+select odate, count(onum)from orders group by odate order by count(onum) desc;
+
+select odate, count(odate) from orders group by odate order by count(odate)  desc;
