@@ -1,0 +1,18 @@
+
+#1
+create table  Multicust
+as
+select * from salespeople;
+
+delete from multicust;
+
+insert into multicust select * from (select * from salespeople where snum in (select snum from (select snum,count(cname) as C from customers group by snum) as tempp where c>1))as temp2;
+
+select * from multicust;
+
+
+#2
+delete from customers where cnum in (select cnum from (select cnum from customers where cnum not in (select cnum from orders)) as tempp1);
+
+#3
+update salespeople set comm= comm+(0.2*comm) where snum in (select snum from (select snum, sum(amt) as S from orders group by snum)as tempp where S>3000);
