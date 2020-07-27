@@ -1,0 +1,18 @@
+#assignemnet 12
+#1
+select cname, rating from customers where rating >= any (select rating from customers where snum= (select snum from salespeople where sname='serres'));
+
+#2
+select sname, city from salespeople where city not in(select city from customers);
+
+select sname, city from salespeople where city  != any (select city from customers);
+
+
+#3
+select onum, amt from orders where amt >all (select amt from orders where cnum in ( select cnum from customers where city='london'));
+
+
+
+#4
+
+select cnum, amt from orders where amt> ( select max(amt) from orders where cnum in (select cnum from customers where city='london'));
