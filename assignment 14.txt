@@ -1,0 +1,26 @@
+/*assignment 14*/
+#1
+INSERT INTO salespeople (city,sname,comm,snum)
+VALUES('San Jose',
+       'Blanco',
+       NULL,
+       1100);
+       
+desc salespeople;
+select * from salespeople;
+
+
+#2
+delete from orders where cnum=(select cnum from customers where cname='clemens');
+savepoint a;
+
+#3
+update customers set rating=rating+100 where city like '%rome';
+rollback to savepoint a;
+select * from customers;
+
+update customers set rating=rating+100 where city ='rome';
+
+
+#4
+update customers set snum=(select snum from salespeople where sname='motika') where  snum= (select snum from salespeople where sname='serres') ;
