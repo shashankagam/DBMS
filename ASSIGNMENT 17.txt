@@ -19,6 +19,12 @@ constraint PK PRIMARY KEY(onum,cnum,snum));
 NULLS permitted, snum is the primary key, and all names fall alphabetically
 between A and M, inclusive (assume all names will be uppercase).
 
+create table salespeople 
+(
+comm int(5) default 0.4,
+snum int primary key,
+sname varchar(20) check(substr(sname,1,1) = upper(substr(sname,1,1)) and substr(sname,1,1) between 'A' and 'M')
+);
 
 create table salespeople3
 (
